@@ -27,12 +27,12 @@ to create a speech bubble class simply follow the example:
 
 The arguments:
 
-1) which side of the parent div to put the triangle on,
-2) border width 
-3) border color
-4) length of triangle bit
-5) width of triangle bit
-6) the position of the triangle on the speech bubble as a %. So 50% would mean the triangle is in the middle of the speech bubble (on whichever side you choose)
+1. which side of the parent div to put the triangle on,
+2. border width 
+3. border color
+4. length of triangle bit
+5. width of triangle bit
+6. the position of the triangle on the speech bubble as a %. So 50% would mean the triangle is in the middle of the speech bubble (on whichever side you choose)
 
 
 Obviously it should be pretty easy to customize these mixins with your own logic, such as broder radius etc etc.
