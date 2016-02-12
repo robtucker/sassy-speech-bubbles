@@ -1,0 +1,28 @@
+{
+  "name": "sassy-speech-bubbles",
+  "version": "1.0.0",
+  "description": "Generate css speech bubbles ",
+  "main": "_speech-bubbles.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robtucker/sassy-speech-bubbles.git"
+  },
+  "keywords": [
+    "sass",
+    "speech-bubbles"
+  ],
+  "author": "Rob Tucker <robertlgtucker@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robtucker/sassy-speech-bubbles/issues"
+  },
+  "homepage": "https://github.com/robtucker/sassy-speech-bubbles",
+  "devDependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0"
+  }
+}

@@ -1,0 +1,80 @@
+
+@mixin speech-bubble-triangle-before ($side, $width, $length, $border-color, $triangle-positioning-offset) {
+  @if $side == 'left' {
+    border-width: $width $length $width 0;
+    border-color: transparent $border-color;
+    top: $triangle-positioning-offset;
+  } @else if $side == 'right' {
+    border-width: $width 0 $width $length;
+    border-color: transparent $border-color;
+    top: $triangle-positioning-offset;
+  } @else if $side == 'top' {
+    border-width: 0 $width $length $width ;
+    border-color: $border-color transparent;
+    left: $triangle-positioning-offset;
+  } @else if $side == 'bottom'{
+    border-width: $length $width 0 $width;
+    border-color: $border-color transparent;
+    left: $triangle-positioning-offset;
+  }
+}
+
+@mixin speech-bubble-triangle-after ($side, $width, $length, $border-color, $triangle-positioning-offset) {
+  @if $side == 'left' {
+    border-width: $width $length $width 0;
+    border-color: transparent #FFFFFF;
+    top: $triangle-positioning-offset;
+  } @else if $side == 'right' {
+    border-width: $width 0 $width $length;
+    border-color: transparent #FFFFFF;
+    top: $triangle-positioning-offset;
+  } @else if $side == 'top' {
+    border-width: 0 $width $length $width ;
+    border-color: #FFFFFF transparent;
+    left: $triangle-positioning-offset;
+  } @else if $side == 'bottom'{
+    border-width: $length $width 0 $width;
+    border-color: #FFFFFF transparent;
+    left: $triangle-positioning-offset;
+  }
+}
+
+@mixin speech-bubble-triangle-position ($side, $length) {
+  @if $side == 'left' {
+    left: -$length;
+  } @else if $side == 'right' {
+    right: -$length;
+  } @else if $side == 'top' {
+    top: -$length;
+  } @else if $side == 'bottom'{
+    bottom: -$length;
+  }
+}
+
+
+// the :before triangle has the $border-width property added to it
+// this means it is slightly greater than the :after triangle - one triangle is overlapping the other
+// this is what creates the illusion of a triangle shaped border
+@mixin speech-bubble-triangle-globals () {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  display: block;
+  width: 0;
+}
+
+@mixin speech-bubble-triangle ($side, $border-width, $border-color, $triangle-length, $triangle-width, $triangle-positioning-offset) {
+  border: $border-width solid $border-color;
+  &:after {
+    z-index: 1;
+    @include speech-bubble-triangle-globals();
+    @include speech-bubble-triangle-after($side, $triangle-length, $triangle-width, $border-color, $triangle-positioning-offset);
+    @include speech-bubble-triangle-position($side, $triangle-length);
+  }
+  &:before {
+    z-index: 0;
+    @include speech-bubble-triangle-globals();
+    @include speech-bubble-triangle-before($side, $triangle-length, $triangle-width, $border-color, $triangle-positioning-offset);
+    @include speech-bubble-triangle-position($side, ($triangle-length + $border-width));
+  }
+}
